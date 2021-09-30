@@ -2,10 +2,19 @@ module.exports = {
   purge: ["./pages/**/*.ts{x}", "./components/**/*.ts{x}"],
   darkMode: false,
   theme: {
-    fontFamily: {
-      sans: ["Roboto", "sans-serif"],
+    screens: {
+      sm: "0px",
+      md: "640px",
+      lg: "960px",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+      },
+      fontSize: {
+        zero: "0",
+      },
+    },
   },
   variants: {
     extend: {},
