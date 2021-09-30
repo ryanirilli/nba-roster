@@ -11,6 +11,7 @@ export default function FancyImage({
   fallbackSrc,
   onError,
   onLoadingComplete,
+  alt,
   ...rest
 }: IFancyImage): JSX.Element {
   const [hasError, setHasError] = useState(false);
@@ -24,6 +25,7 @@ export default function FancyImage({
 
   return (
     <Image
+      alt={alt}
       className={imageClasses}
       src={hasError && fallbackSrc ? fallbackSrc : src}
       onError={(e) => {

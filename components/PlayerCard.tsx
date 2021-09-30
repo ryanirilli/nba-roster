@@ -19,7 +19,7 @@ export default function PlayerCard({ player, team }: IPlayerCard): JSX.Element {
         />
       </div>
       <div className="z-0 text-zero absolute w-2/3 transform scale-150 -translate-y-20 translate-x-6 filter grayscale opacity-10">
-        <Image role="presentation" src={team.logo} width={600} height={600} />
+        <Image alt="" src={team.logo} width={600} height={600} />
       </div>
       <div
         className="border-b-4 relative flex"
