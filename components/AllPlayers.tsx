@@ -36,7 +36,7 @@ export default function AllPlayers({
             return (
               team && (
                 <li
-                  className="sm:w-full md:w-1/2 lg:w-1/3 p-4 sm:px-0 md:px-4"
+                  className="sm:w-full md:w-1/2 lg:w-1/3 p-4 sm:px-0 md:px-4 lg:px-2 xl:px-4"
                   key={player.pid}
                 >
                   <PlayerCard player={player} team={team} />

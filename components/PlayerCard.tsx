@@ -40,8 +40,10 @@ export default function PlayerCard({ player, team }: IPlayerCard): JSX.Element {
             <p className="text-gray-400">
               #{player.num} | {player.pos}
             </p>
-            <p className="text-xl font-bold leading-3">{player.fn}</p>
-            <p className="text-xl md:text-lg font-bold">{player.ln}</p>
+            <p className="truncate text-xl font-bold">{player.fn}</p>
+            <p className="truncate text-xl font-bold transform -translate-y-1">
+              {player.ln}
+            </p>
           </div>
         </div>
       </div>
