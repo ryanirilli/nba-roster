@@ -14,6 +14,11 @@ module.exports = {
       fontSize: {
         zero: "0",
       },
+      colors: {
+        brand: {
+          blue: "#17408B",
+        },
+      },
     },
   },
   variants: {
