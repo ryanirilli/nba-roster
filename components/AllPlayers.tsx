@@ -6,7 +6,7 @@ const loadingCards: JSX.Element[] = [];
 loadingCards.length = 30;
 loadingCards.fill(<LoadingCard />);
 
-export default function AllPlayers() {
+export default function AllPlayers(): JSX.Element {
   const playerData = usePlayers();
   const teamData = useTeams();
   const isLoading = playerData?.isLoading && teamData?.isLoading;
@@ -39,8 +39,6 @@ export default function AllPlayers() {
   );
 }
 
-function LoadingCard() {
-  return (
-    <article className="h-60 relative overflow-hidden bg-gray-100 animate-pulse rounded-md"></article>
-  );
+function LoadingCard(): JSX.Element {
+  return <article className="h-60 bg-gray-100 animate-pulse rounded-md" />;
 }

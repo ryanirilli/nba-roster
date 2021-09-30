@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 
 import AllPlayers from "../components/AllPlayers";
-import TopNav from "../components/TopNav";
-import Container from "../components/Container";
+import TopNav from "../components/design-system/TopNav";
+import Container from "../components/design-system/Container";
 
 const Home: NextPage = () => {
   return (
