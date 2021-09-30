@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Player } from "../types/player";
 import { Team } from "../types/team";
+import FancyImage from "./FancyImage";
 
 interface IPlayerCard {
   player: Player;
@@ -8,7 +9,10 @@ interface IPlayerCard {
 }
 export default function PlayerCard({ player, team }: IPlayerCard): JSX.Element {
   return (
-    <div className="relative overflow-hidden  shadow-lg rounded-md">
+    <article className="relative overflow-hidden bg-white shadow-lg rounded-md">
+      <div className="text-zero absolute top-2 right-2">
+        <Image src={team.logo} width={64} height={64} />
+      </div>
       <div className="z-0 text-zero absolute w-2/3 transform scale-150 -translate-y-20 translate-x-6 filter grayscale opacity-10">
         <Image src={team.logo} width={600} height={600} />
       </div>
@@ -17,14 +21,12 @@ export default function PlayerCard({ player, team }: IPlayerCard): JSX.Element {
         style={{ borderColor: team.color }}
       >
         <div className="text-zero pt-8 w-1/2">
-          <Image
+          <FancyImage
             src={player.headshot}
+            fallbackSrc="/player-fallback.png"
             width={260}
             height={190}
             objectFit="cover"
-            onError={() => {
-              console.log("ERRORRRRR");
-            }}
           />
         </div>
         <div className="w-1/2 flex flex-col justify-center">
@@ -33,7 +35,7 @@ export default function PlayerCard({ player, team }: IPlayerCard): JSX.Element {
               #{player.num} | {player.pos}
             </p>
             <p className="text-xl font-bold leading-3">{player.fn}</p>
-            <p className="text-xl font-bold">{player.ln}</p>
+            <p className="text-xl md:text-lg font-bold">{player.ln}</p>
           </div>
         </div>
       </div>
@@ -51,6 +53,6 @@ export default function PlayerCard({ player, team }: IPlayerCard): JSX.Element {
           <div className="font-bold">{player.ast}</div>
         </div>
       </div>
-    </div>
+    </article>
   );
 }
