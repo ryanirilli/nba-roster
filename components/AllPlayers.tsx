@@ -1,15 +1,24 @@
 import PlayerCard from "./PlayerCard";
 import usePlayers from "../hooks/use-players";
 import useTeams from "../hooks/use-teams";
+import { useMemo } from "react";
+interface IAllPlayers {
+  numLoadingCards?: number;
+}
 
-const loadingCards: JSX.Element[] = [];
-loadingCards.length = 30;
-loadingCards.fill(<LoadingCard />);
-
-export default function AllPlayers(): JSX.Element {
+export default function AllPlayers({
+  numLoadingCards = 30,
+}: IAllPlayers): JSX.Element {
   const playerData = usePlayers();
   const teamData = useTeams();
   const isLoading = playerData?.isLoading && teamData?.isLoading;
+
+  const loadingCards = useMemo(() => {
+    const lcards: JSX.Element[] = [];
+    lcards.length = numLoadingCards;
+    lcards.fill(<LoadingCard />);
+    return lcards;
+  }, [numLoadingCards]);
 
   return (
     <ul className="flex flex-wrap">
@@ -40,5 +49,10 @@ export default function AllPlayers(): JSX.Element {
 }
 
 function LoadingCard(): JSX.Element {
-  return <article className="h-60 bg-gray-100 animate-pulse rounded-md" />;
+  return (
+    <article
+      data-testid="loading-card"
+      className="h-60 bg-gray-100 animate-pulse rounded-md"
+    />
+  );
 }

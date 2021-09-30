@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Player } from "../types/player";
 import { Team } from "../types/team";
-import FancyImage from "./FancyImage";
+import FancyImage from "./design-system/FancyImage";
 
 interface IPlayerCard {
   player: Player;
@@ -11,10 +11,15 @@ export default function PlayerCard({ player, team }: IPlayerCard): JSX.Element {
   return (
     <article className="relative overflow-hidden bg-white shadow-lg rounded-md">
       <div className="text-zero absolute top-2 right-2">
-        <Image src={team.logo} width={64} height={64} />
+        <Image
+          alt={`${team.city} ${team.name} logo`}
+          src={team.logo}
+          width={64}
+          height={64}
+        />
       </div>
       <div className="z-0 text-zero absolute w-2/3 transform scale-150 -translate-y-20 translate-x-6 filter grayscale opacity-10">
-        <Image src={team.logo} width={600} height={600} />
+        <Image role="presentation" src={team.logo} width={600} height={600} />
       </div>
       <div
         className="border-b-4 relative flex"
@@ -22,6 +27,7 @@ export default function PlayerCard({ player, team }: IPlayerCard): JSX.Element {
       >
         <div className="text-zero pt-8 w-1/2">
           <FancyImage
+            alt={`${player.fn} ${player.ln} headshot`}
             src={player.headshot}
             fallbackSrc="/player-fallback.png"
             width={260}
