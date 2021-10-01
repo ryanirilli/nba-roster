@@ -8,10 +8,14 @@ const Home: NextPage = () => {
   return (
     <>
       <TopNav />
+      <div className="bg-white sm:pl-0 md:pl-4 border-b-2 sticky top-0 z-10">
+        <Container>
+          <h1 className="text-3xl font-light text-gray-600  py-2">
+            All Players
+          </h1>
+        </Container>
+      </div>
       <Container>
-        <div className="sm:pl-0 sm:py-8 md:pl-4 md:py-16">
-          <h1 className="text-5xl font-medium">All Players</h1>
-        </div>
         <AllPlayers />
       </Container>
     </>
